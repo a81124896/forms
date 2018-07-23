@@ -1,1 +1,5 @@
 /target/
+# Eclipse Project files
+.classpath
+.project
+.settings/
