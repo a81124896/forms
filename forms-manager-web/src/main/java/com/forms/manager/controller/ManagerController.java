@@ -12,7 +12,7 @@ import com.forms.manager.service.UserService;
 @Controller
 public class ManagerController {
 
-	@Reference
+	@Reference(version="2.0.0")
 	private UserService userService;
 	
 	@RequestMapping("/test")
