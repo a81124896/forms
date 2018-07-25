@@ -11,7 +11,7 @@ import com.mchange.v2.log.MLog;
 @Controller
 public class ManagerController {
 
-	@Reference(version="1.0.0")
+	@Reference(version="2.0.0")
 	private UserService userService;
 	
 	@RequestMapping("/test")

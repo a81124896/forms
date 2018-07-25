@@ -12,7 +12,7 @@ import com.forms.redis.annotation.RedisCache;
 import com.forms.redis.annotation.RedisHashCache;
 import com.forms.redis.annotation.RedisHashDel;
 
-@Service
+@Service(version="1.0.0")
 public class UserServiceImpl implements UserService {
 
 	@Autowired
