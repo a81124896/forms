@@ -7,11 +7,13 @@
         http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    <context:property-placeholder location="classpath:config/application.properties" />
+   <!--<context:property-placeholder location="classpath:config/application.properties" />-->
+    
+    <context:property-placeholder location="classpath*:properties/*.properties" />
     
 	<!-- 引用dubbo 服务 -->
 	<dubbo:application name="forms-manager-web" />
-	<dubbo:registry address="zookeeper://192.168.17.128:2181"/>
+	<dubbo:registry address="zookeeper://192.168.128.129:2181"/>
 	<dubbo:annotation package="com.forms" />  	
 	
 	<mvc:annotation-driven>
@@ -27,4 +29,6 @@
 	    </bean>
 	  </mvc:message-converters>  
 	</mvc:annotation-driven>
+	
+	<import resource="applicationContext-redis.xml"/>
 </beans>
