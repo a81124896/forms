@@ -18,7 +18,8 @@
             http://www.springframework.org/schema/cache  
             http://www.springframework.org/schema/cache/spring-cache.xsd">
 
-	<context:property-placeholder location="classpath*:properties/*.properties" />
+	<context:property-placeholder location="classpath*:properties/*.properties,
+                                  file:D:/properties/*.properties" />
 
 	<aop:aspectj-autoproxy />
 
