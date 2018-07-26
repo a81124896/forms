@@ -39,6 +39,7 @@
 		<activemq.version>5.13.0</activemq.version>
 		<freemarker.version>2.3.23</freemarker.version>
 		<quartz.version>2.2.2</quartz.version>
+		<mail.version>1.4.7</mail.version>
 	</properties>
 	<!-- 就是管理版本的标签   其下的dependencies标签只是版本的管理 并不依赖jar-->
 	<dependencyManagement>
@@ -248,6 +249,12 @@
 				<artifactId>freemarker</artifactId>
 				<version>${freemarker.version}</version>
 			</dependency>
+			 <dependency>
+	            <groupId>javax.mail</groupId>
+	            <artifactId>mail</artifactId>
+	            <version>${mail.version}</version>
+        	</dependency>
+        
 		</dependencies>
 	</dependencyManagement>
 
@@ -323,5 +330,37 @@
 		<module>forms-search-interface</module>
 		<module>forms-search-service</module>
 		<module>forms-search-web</module>
+		<module>forms-mail-interface</module>
+		<module>forms-mail-service</module>
 	</modules>
+	
+	<!-- 私服 -->
+	<repositories>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>public</id>
+			<name>Public Repositories</name>
+			<url>http://192.168.17.128:8081/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+		<pluginRepositories>
+			<pluginRepository>
+				<id>public</id>
+				<name>Public Repositories</name>
+				<url>http://192.168.17.128:8081/nexus/content/groups/public/</url>
+			</pluginRepository>
+		</pluginRepositories>
+	
+		<distributionManagement>
+			<snapshotRepository>
+				<id>snapshots</id>
+				<url>http://192.168.17.128:8081/nexus/content/repositories/snapshots</url>
+			</snapshotRepository>
+			<repository>
+				<id>releases</id>
+				<url>http://192.168.17.128:8081/nexus/content/repositories/releases</url>
+			</repository>
+		</distributionManagement>
 </project>

@@ -16,6 +16,9 @@
         <dependent-module archiveName="forms-pojo-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/forms-pojo/forms-pojo">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="forms-mail-interface-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/forms-mail-interface/forms-mail-interface">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="forms-manager-web"/>
         <property name="java-output-path" value="/forms-manager-web/target/classes"/>
     </wb-module>
