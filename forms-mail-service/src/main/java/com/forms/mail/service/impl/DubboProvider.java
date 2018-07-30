@@ -17,7 +17,7 @@ public class DubboProvider {
 			ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring/applicationContext*.xml");
 			context.start();
 		} catch (Exception e) {
-			log.error("== DubboProvider context start error:",e);
+			log.error("== DubboProvider context start error: ",e);
 		}
 		synchronized (DubboProvider.class) {
 			while (true) {
