@@ -1,17 +1,19 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.forms</groupId>
-  <artifactId>forms-parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
-  
-  <!-- 集中定义依赖版本号 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.forms</groupId>
+	<artifactId>forms-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<!-- 集中定义依赖版本号 -->
 	<properties>
 		<junit.version>4.12</junit.version>
 		<spring.version>4.2.4.RELEASE</spring.version>
 		<mybatis.version>3.4.6</mybatis.version>
 		<mybatis.spring.version>1.3.2</mybatis.spring.version>
 		<mybatis.paginator.version>1.2.15</mybatis.paginator.version>
+		<commons-beanutils.version>1.9.2</commons-beanutils.version>
 		<pagehelper.version>5.1.4</pagehelper.version>
 		<persistence.version>1.0</persistence.version>
 		<mapper.version>4.0.3</mapper.version>
@@ -41,7 +43,7 @@
 		<quartz.version>2.2.2</quartz.version>
 		<mail.version>1.4.7</mail.version>
 	</properties>
-	<!-- 就是管理版本的标签   其下的dependencies标签只是版本的管理 并不依赖jar-->
+	<!-- 就是管理版本的标签 其下的dependencies标签只是版本的管理 并不依赖jar -->
 	<dependencyManagement>
 		<dependencies>
 			<!-- 时间操作组件 -->
@@ -120,9 +122,9 @@
 				<version>${pagehelper.version}</version>
 			</dependency>
 			<dependency>
-			  <groupId>javax.persistence</groupId>
-			  <artifactId>persistence-api</artifactId>
-			  <version>${persistence.version}</version>
+				<groupId>javax.persistence</groupId>
+				<artifactId>persistence-api</artifactId>
+				<version>${persistence.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>tk.mybatis</groupId>
@@ -150,6 +152,11 @@
 			<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-beans</artifactId>
+				<version>${spring.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-core</artifactId>
 				<version>${spring.version}</version>
 			</dependency>
 			<dependency>
@@ -207,11 +214,11 @@
 				<artifactId>jedis</artifactId>
 				<version>${jedis.version}</version>
 			</dependency>
-			<dependency> 
-		  <groupId>org.springframework.data</groupId> 
-		  <artifactId>spring-data-redis</artifactId> 
-		  <version>${jedis.data.version}</version> 
-		</dependency>	
+			<dependency>
+				<groupId>org.springframework.data</groupId>
+				<artifactId>spring-data-redis</artifactId>
+				<version>${jedis.data.version}</version>
+			</dependency>
 			<!-- solr客户端 -->
 			<dependency>
 				<groupId>org.apache.solr</groupId>
@@ -225,10 +232,10 @@
 				<version>${dubbo.version}</version>
 			</dependency>
 			<dependency>
-	            <groupId>org.javassist</groupId>
-	            <artifactId>javassist</artifactId>
-	            <version>${javassist.version}</version>
-	        </dependency>
+				<groupId>org.javassist</groupId>
+				<artifactId>javassist</artifactId>
+				<version>${javassist.version}</version>
+			</dependency>
 			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>
@@ -249,12 +256,16 @@
 				<artifactId>freemarker</artifactId>
 				<version>${freemarker.version}</version>
 			</dependency>
-			 <dependency>
-	            <groupId>javax.mail</groupId>
-	            <artifactId>mail</artifactId>
-	            <version>${mail.version}</version>
-        	</dependency>
-        
+			<dependency>
+				<groupId>javax.mail</groupId>
+				<artifactId>mail</artifactId>
+				<version>${mail.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${commons-beanutils.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -270,7 +281,7 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			
+
 			<!-- java编译插件 -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -282,7 +293,7 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -298,7 +309,7 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<!-- 插件版本的管理  pluginManagement 控制版本的，如果要使用，需要在子工程再配置坐标-->
+		<!-- 插件版本的管理 pluginManagement 控制版本的，如果要使用，需要在子工程再配置坐标 -->
 		<pluginManagement>
 			<plugins>
 				<!-- 配置Tomcat插件 -->
@@ -313,9 +324,9 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>2.12.4</version>
-					 <configuration>
-			          <skipTests>true</skipTests>
-			        </configuration>
+					<configuration>
+						<skipTests>true</skipTests>
+					</configuration>
 				</plugin>
 			</plugins>
 		</pluginManagement>
@@ -333,7 +344,7 @@
 		<module>forms-mail-interface</module>
 		<module>forms-mail-service</module>
 	</modules>
-	
+
 	<!-- 私服 -->
 	<repositories>
 		<repository>
@@ -345,22 +356,22 @@
 			<url>http://192.168.17.128:8081/nexus/content/groups/public/</url>
 		</repository>
 	</repositories>
-		<pluginRepositories>
-			<pluginRepository>
-				<id>public</id>
-				<name>Public Repositories</name>
-				<url>http://192.168.17.128:8081/nexus/content/groups/public/</url>
-			</pluginRepository>
-		</pluginRepositories>
-	
-		<distributionManagement>
-			<snapshotRepository>
-				<id>snapshots</id>
-				<url>http://192.168.17.128:8081/nexus/content/repositories/snapshots</url>
-			</snapshotRepository>
-			<repository>
-				<id>releases</id>
-				<url>http://192.168.17.128:8081/nexus/content/repositories/releases</url>
-			</repository>
-		</distributionManagement>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>public</id>
+			<name>Public Repositories</name>
+			<url>http://192.168.17.128:8081/nexus/content/groups/public/</url>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<distributionManagement>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<url>http://192.168.17.128:8081/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>releases</id>
+			<url>http://192.168.17.128:8081/nexus/content/repositories/releases</url>
+		</repository>
+	</distributionManagement>
 </project>
