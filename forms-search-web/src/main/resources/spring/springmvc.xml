@@ -9,11 +9,12 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
    <!--<context:property-placeholder location="classpath:config/application.properties" />-->
     
-    <context:property-placeholder location="classpath*:properties/*.properties" />
+    <context:property-placeholder location="classpath*:properties/*.properties,
+                                  file:D:/properties/*.properties" />
     
 	<!-- 引用dubbo 服务 -->
 	<dubbo:application name="forms-search-web" />
-	<dubbo:registry address="zookeeper://192.168.128.129:2181"/>
+	<dubbo:registry address="${zookeeper.url}"/>
 	<dubbo:annotation package="com.forms" />  	
 	<dubbo:consumer timeout="30000" retries="0" />
 	<!-- dubbo:consumer timeout="30000" retries="0" version="1.0.0"/>-->
